@@ -9,13 +9,21 @@ jobs:
     name: lint
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          go mod download 
+
+      - name: Run tests
+        run: |
+          go test -v ./...
+
       - name: Install Go
         uses: actions/setup-go@v2
         with:
           go-version: 1.15.x
-
-      - name: Checkout code
-        uses: actions/checkout@v2
 
       - name: Run linters
         uses: golangci/golangci-lint-action@v2
