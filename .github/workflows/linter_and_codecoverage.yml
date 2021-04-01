@@ -81,9 +81,9 @@ jobs:
       run: |
         go test -v -covermode=count -coverprofile=coverage.out
 
-    - name: Echo coverage
+    - name: Set coverage
       run: |
-        go test -v -covermode=count -coverprofile=coverage.out
+        echo "COVERAGE=$(echo coverage.out)" >> GITHUB_ENV
 
     # - name: Comment PR
     #   uses: thollander/actions-comment-pull-request@master
