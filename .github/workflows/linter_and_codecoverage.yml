@@ -83,7 +83,7 @@ jobs:
 
     - name: Set coverage
       run: |
-        echo "COVERAGE=$(echo coverage.out)" >> GITHUB_ENV
+        echo "COVERAGE=$(cat coverage.out)" >> GITHUB_ENV
     
     - name: echo variable
       run: |
