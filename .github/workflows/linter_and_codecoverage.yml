@@ -92,5 +92,5 @@ jobs:
     - name: Comment PR
       uses: thollander/actions-comment-pull-request@master
       with:
-        message: {{ env.COVERAGE }}
+        message: ${{ env.COVERAGE }}
         GITHUB_TOKEN: ${{ github.token }}
