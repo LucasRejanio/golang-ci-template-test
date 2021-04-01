@@ -81,16 +81,16 @@ jobs:
       run: |
         go test -v -covermode=count -coverprofile=coverage.out
 
-    - name: Set coverage
-      run: |
-        echo "COVERAGE=$(cat coverage.out)" >> GITHUB_ENV
+    # - name: Set coverage
+    #   run: |
+    #     echo "COVERAGE=$(cat coverage.out)" >> GITHUB_ENV
     
-    - name: echo variable
-      run: |
-        echo $COVERAGE
+    # - name: echo variable
+    #   run: |
+    #     echo $COVERAGE
 
     - name: Comment PR
       uses: thollander/actions-comment-pull-request@master
       with:
-        message: ${{ env.COVERAGE }}
+        message: coverage.out
         GITHUB_TOKEN: ${{ github.token }}
