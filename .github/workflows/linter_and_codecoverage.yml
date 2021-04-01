@@ -89,8 +89,8 @@ jobs:
       run: |
         echo $COVERAGE
 
-    # - name: Comment PR
-    #   uses: thollander/actions-comment-pull-request@master
-    #   with:
-    #     message: 'Example of message !'
-    #     GITHUB_TOKEN: ${{ github.token }}
+    - name: Comment PR
+      uses: thollander/actions-comment-pull-request@master
+      with:
+        message: {{ env.COVERAGE }}
+        GITHUB_TOKEN: ${{ github.token }}
