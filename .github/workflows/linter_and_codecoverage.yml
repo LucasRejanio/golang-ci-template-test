@@ -81,11 +81,8 @@ jobs:
       run: |
         go test -v -covermode=count -coverprofile=coverage.out
 
-    # - name: Convert coverage.out to coverage.lcov
-    #   uses: jandelgado/gcov2lcov-action@v1.0.6
-
-    # - name: Coveralls
-    #   uses: coverallsapp/github-action@v1.1.2
-    #   with:
-    #     github-token: ${{ github.token }}
-    #     path-to-lcov: coverage.lcov
+    - name: Comment PR
+        uses: thollander/actions-comment-pull-request@master
+        with:
+          message: 'Example of message !'
+          GITHUB_TOKEN: ${{ github_token }}
