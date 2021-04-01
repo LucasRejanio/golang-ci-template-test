@@ -2,7 +2,7 @@ name: Linter and Codecoverage
 
 on:
   push:
-    branches: [lr-create-ci-lint-and-codecoverage]
+    branches: [main]
 
 jobs:
   lint:
