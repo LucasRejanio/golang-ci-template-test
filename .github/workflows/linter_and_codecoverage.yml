@@ -1,8 +1,6 @@
 name: Linter and Codecoverage
 
-on:
-  push:
-    branches: [main]
+on: [pull_request]
 
 jobs:
   lint:
@@ -81,11 +79,11 @@ jobs:
       run: |
         go test -v -covermode=count -coverprofile=coverage.out
 
-    # - name: Convert coverage.out to coverage.lcov
-    #   uses: jandelgado/gcov2lcov-action@v1.0.6
-
-    # - name: Coveralls
-    #   uses: coverallsapp/github-action@v1.1.2
-    #   with:
-    #     github-token: ${{ github.token }}
-    #     path-to-lcov: coverage.lcov
+    - name: Convert coverage.out to coverage.lcov
+      uses: jandelgado/gcov2lcov-action@v1.0.6
+    
+    - name: Comment coverage
+      uses: romeovs/lcov-reporter-action@v0.2.21
+      with:
+        github-token: ${{ github.token }}
+        lcov-file: coverage.lcov
