@@ -2,7 +2,7 @@ name: Linter and Codecoverage
 
 on:
   push:
-    branches: [main]
+    branches: [lr-test-comment-pr]
 
 jobs:
   lint:
@@ -82,7 +82,7 @@ jobs:
         go test -v -covermode=count -coverprofile=coverage.out
 
     - name: Comment PR
-        uses: thollander/actions-comment-pull-request@master
-        with:
-          message: 'Example of message !'
-          GITHUB_TOKEN: ${{ github_token }}
+      uses: thollander/actions-comment-pull-request@master
+      with:
+        message: 'Example of message !'
+        GITHUB_TOKEN: ${{ github_token }}
