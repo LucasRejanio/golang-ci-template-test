@@ -23,7 +23,7 @@ jobs:
       - name: Install Go
         uses: actions/setup-go@v2
         with:
-          go-version: 1.15.x
+          go-version: 1.14.x
 
       - name: Run linters
         uses: golangci/golangci-lint-action@v2
@@ -34,7 +34,7 @@ jobs:
     needs: lint
     strategy:
       matrix:
-        go-version: [1.15.x]
+        go-version: [1.14.x]
 
     runs-on: ubuntu-latest
     steps:
@@ -72,7 +72,7 @@ jobs:
       if: success()
       uses: actions/setup-go@v2
       with:
-        go-version: 1.15.x
+        go-version: 1.14.x
 
     - name: Checkout code
       uses: actions/checkout@v2
@@ -81,11 +81,11 @@ jobs:
       run: |
         go test -v -covermode=count -coverprofile=coverage.out
 
-    - name: Convert coverage.out to coverage.lcov
-      uses: jandelgado/gcov2lcov-action@v1.0.6
+    # - name: Convert coverage.out to coverage.lcov
+    #   uses: jandelgado/gcov2lcov-action@v1.0.6
 
-    - name: Coveralls
-      uses: coverallsapp/github-action@v1.1.2
-      with:
-        github-token: ${{ github.token }}
-        path-to-lcov: coverage.lcov
+    # - name: Coveralls
+    #   uses: coverallsapp/github-action@v1.1.2
+    #   with:
+    #     github-token: ${{ github.token }}
+    #     path-to-lcov: coverage.lcov
