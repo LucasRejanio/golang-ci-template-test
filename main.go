@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 // Hello just says hello
-func Hello() {
+			funC Hello() {
 	fmt.Println("hello, world!")
 }
 
