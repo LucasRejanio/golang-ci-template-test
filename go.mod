@@ -1,4 +1,4 @@
-module enjulogistic
+module https://github.com/LucasRejanio/golang-ci-template-test
 
 go 1.14
 
