@@ -84,6 +84,10 @@ jobs:
     - name: Set coverage
       run: |
         echo "COVERAGE=$(echo coverage.out)" >> GITHUB_ENV
+    
+    - name: echo variable
+      run: |
+        echo $COVERAGE
 
     # - name: Comment PR
     #   uses: thollander/actions-comment-pull-request@master
