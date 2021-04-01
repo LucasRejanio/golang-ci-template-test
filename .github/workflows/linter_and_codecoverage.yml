@@ -79,15 +79,15 @@ jobs:
       
     - name: Calc coverage
       run: |
-        go test -v -covermode=count -coverprofile=coverage.out
+        echo "COVERAGE=$(go test -v -covermode=count)" >> GITHUB_ENV
 
     # - name: Set coverage
     #   run: |
-    #     echo "COVERAGE=$(cat coverage.out)" >> GITHUB_ENV
+    #     echo "COVERAGE=$(cat coverage.out)" >> GITHUB_ENV -coverprofile=coverage.out
     
     - name: echo variable
       run: |
-        cat coverage.out
+        echo $COVERAGE
 
     # - name: Comment PR
     #   uses: thollander/actions-comment-pull-request@master
