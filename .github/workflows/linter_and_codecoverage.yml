@@ -30,31 +30,60 @@ jobs:
         with:
           version: v1.29.0
   
+  test:
+    needs: lint
+    strategy:
+      matrix:
+        go-version: [1.15.x]
+        platform: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.platform }}
+    steps:
+    - uses: actions/cache@v2
+      with:
+        path: ~/go/pkg/mod
+        key: x${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+        restore-keys: |
+          ${{ runner.os }}-go-
+
+    - name: Install Go
+      if: success()
+      uses: actions/setup-go@v2
+      with:
+        go-version: ${{ matrix.go-version }}
+
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Run tests
+      run: go test -v -covermode=count
+
   coverage:
+    needs: lint
     runs-on: ubuntu-latest
     steps:
-      - name: Install Go
-        if: success()
-        uses: actions/setup-go@v1
-        with:
-          go-version: 1.13.x
+    - uses: actions/cache@v2
+      with:
+        path: ~/go/pkg/mod
+        key: x${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+        restore-keys: |
+          ${{ runner.os }}-go-
 
-      - name: Checkout code
-        uses: actions/checkout@v1
+    - name: Install Go
+      if: success()
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.15.x
 
-      - name: Calc coverage 
-        run: |
-          export PATH=$PATH:$(go env GOPATH)/bin   
-          go test -v -covermode=count -coverprofile=coverage.out
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Calc coverage
+      run: |
+        go test -v -covermode=count -coverprofile=coverage.out
 
-      - name: Convert coverage to lcov
-        uses: jandelgado/gcov2lcov-action@v1.0.0
-        with:
-          infile: coverage.out
-          outfile: coverage.lcov
-
-      - name: Coveralls
-        uses: coverallsapp/github-action@v1.0.1
-        with:
-          github-token: ${{ secrets.COVERAGE_TOKEN }}
+    - name: Convert coverage.out to coverage.lcov
+      uses: jandelgado/gcov2lcov-action@v1.0.6
+      
+    - name: Coveralls
+      uses: coverallsapp/github-action@v1.1.2
+      with:
+          github-token: ${{ secrets.github_token }}
           path-to-lcov: coverage.lcov
