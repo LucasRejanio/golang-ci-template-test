@@ -41,6 +41,7 @@ jobs:
 
       - name: Checkout code
         uses: actions/checkout@v1
+
       - name: Calc coverage 
         run: |
           export PATH=$PATH:$(go env GOPATH)/bin   
