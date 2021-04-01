@@ -1,8 +1,8 @@
 name: Linter and Codecoverage
 
 on:
-  push:
-    branches: [lr-test-comment-pr]
+  pull_request:
+      branches: main
 
 jobs:
   lint:
