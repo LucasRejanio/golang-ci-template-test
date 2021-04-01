@@ -85,4 +85,4 @@ jobs:
       uses: thollander/actions-comment-pull-request@master
       with:
         message: 'Example of message !'
-        GITHUB_TOKEN: ${{ github_token }}
+        GITHUB_TOKEN: ${{ github.token }}
