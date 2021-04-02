@@ -1,4 +1,4 @@
-[![build](https://img.shields.io/wercker/build/wercker/go-wercker-api.svg)](https://github.com/LucasRejanio/apply-label-pr-actions/actions)
+[![build](https://img.shields.io/wercker/build/wercker/go-wercker-api.svg)](https://github.com/LucasRejanio/golang-ci-template-test/actions/workflows/linter_and_codecoverage.yml)
 
 
 # Lint and Coverage actions template
