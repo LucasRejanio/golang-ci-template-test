@@ -1,8 +1,6 @@
 [![build](https://img.shields.io/wercker/build/wercker/go-wercker-api.svg)](https://github.com/LucasRejanio/golang-ci-template-test/actions/runs/709560111)
 
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/jandelgado/golang-ci-template-github-actions)](https://goreportcard.com/report/github.com/jandelgado/golang-ci-template-github-actions) 
-
 # Lint e Coverage actions template
 
 ## Informações
