@@ -9,4 +9,5 @@ Este repositório serve como modelo para projetos go integrados ao github-action
 
 #### Exemplo 
 
+![test-linter-and-codecoverage](https://user-images.githubusercontent.com/52427398/113367382-3b736c00-9332-11eb-8d7f-a9a2cbcd1075.png)
 
