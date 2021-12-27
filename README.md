@@ -7,7 +7,7 @@
 
 ## Informações
 
-Este repositório serve como modelo para projetos go integrados ao github-actions. Ele consiste em um `hello, world!` utilizando o goland no arquivo de origem `main.go` que é testado de maneira automatizada pela actions `linter_and_codecoverage.yml`. O CI executa alguns linters no código, antes que os testes de unidade sejam executados. Quando o estágio de construção foi bem-sucedido, os artefatos do codecovereage são carregados e disponibilizados como um comentario no seu pull request.
+Este repositório serve como modelo para projetos go integrados ao github-actions. Ele consiste em um `hello, world!` utilizando o golang no arquivo de origem `main.go` que é testado de maneira automatizada pela actions `linter_and_codecoverage.yml`. O CI executa alguns linters no código, antes que os testes de unidade sejam executados. Quando o estágio de construção foi bem-sucedido, os artefatos do codecovereage são carregados e disponibilizados como um comentario no seu pull request.
 
 #### Exemplo 
 
